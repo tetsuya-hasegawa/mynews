@@ -16,8 +16,11 @@ Route::get('/', function () {
 });
 Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+    Route::post('news/create', 'Admin\NewsController@create'); # 追記
     Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
+    Route::post('profile/create', 'Admin\ProfileController@create');# Laravel 13の課題3で追記
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+    Route::post('profile/edit', 'Admin\ProfileController@update');# Laravel 13の課題6で追記
 });
 Auth::routes();
 
