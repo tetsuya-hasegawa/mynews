@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Providers;
-
 use Illuminate\Support\ServiceProvider;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -15,7 +12,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-
     /**
      * Bootstrap any application services.
      *
@@ -23,9 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // 以下を追記
-        if (App::environment('production')) {
-            URL::forceScheme('https');
+        if (\App::environment('production')) {
+            \URL::forceScheme('https');
         }
     }
 }
